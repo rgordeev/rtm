@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'war'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.apache.commons:commons-lang3:3.3.2'
+    compile 'org.apache.commons:commons-collections4:4.0'
+    compile 'com.google.code.gson:gson:2.2.4'
+    
+    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+    providedCompile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
+}
+
+task copyWar(type: Copy, dependsOn: war) {
+    from 'build/libs'
+    into '/Users/user/servers/apache-tomcat-8.0.9/webapps'
+}
