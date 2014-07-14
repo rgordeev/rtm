@@ -24,8 +24,9 @@ public class CommandFactory
     {
         storage = InMemoryStorage.getInstance();
 
-        commands.put("list", new ListCommand(storage));
-        commands.put("add",  new AddCommand(storage));
+        commands.put("list",    new ListCommand(storage));
+        commands.put("add",     new AddCommand(storage));
+        commands.put("delete",  new DeleteCommand(storage));
     }
 
     public Command createCommand(String commandName)
