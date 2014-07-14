@@ -22,7 +22,7 @@ public class SimpleController extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        String action = StringUtils.substringBetween(req.getServletPath(), "/", ".do");
+        String action = StringUtils.substringBefore(StringUtils.substringAfterLast(req.getServletPath(), "/"), ".do");
         String view   = CommandFactory.getInstance().createCommand(action).execute(req);
 
         req.getRequestDispatcher(view).forward(req, resp);
@@ -31,7 +31,7 @@ public class SimpleController extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        String action = StringUtils.substringBetween(req.getServletPath(), "/", ".do");
+        String action = StringUtils.substringBefore(StringUtils.substringAfterLast(req.getServletPath(), "/"), ".do");
         String view   = CommandFactory.getInstance().createCommand(action).execute(req);
 
         req.getRequestDispatcher(view).forward(req, resp);
