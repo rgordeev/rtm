@@ -30,8 +30,8 @@
             <tr>
                 <td><%= record.getId() %>  </td>
                 <td><%= record.getNote() %></td>
+                <td><a href="update.do?id=<%= record.getId() %>">update</a></td>
                 <td><a href="delete.do?id=<%= record.getId() %>">remove</a></td>
-                <td></td>
             </tr>
 <%
     }
