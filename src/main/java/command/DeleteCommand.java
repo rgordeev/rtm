@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
  * Date: 14.07.14
  * Time: 12:24
  */
-public class DeleteCommand implements Command
+public class DeleteCommand extends AbstractCommand
 {
     public DeleteCommand(StorageService storage)
     {
-        this.storage = storage;
+        super(storage);
     }
 
     @Override
@@ -27,6 +27,4 @@ public class DeleteCommand implements Command
 
         return "list.do";
     }
-
-    private StorageService storage;
 }

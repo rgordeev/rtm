@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
  * Date: 14.07.14
  * Time: 12:43
  */
-public class UpdateCommand implements Command
+public class UpdateCommand extends AbstractCommand
 {
     public UpdateCommand(StorageService storage)
     {
-        this.storage = storage;
+        super(storage);
     }
 
     @Override
@@ -49,6 +49,4 @@ public class UpdateCommand implements Command
         return "list.do";
 
     }
-
-    private StorageService storage;
 }

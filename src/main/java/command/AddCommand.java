@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletRequest;
  * <p/>
  * 2014 июл 09
  */
-public class AddCommand implements Command
+public class AddCommand extends AbstractCommand
 {
     public AddCommand(StorageService storage)
     {
-        this.storage = storage;
+        super(storage);
     }
 
     @Override
@@ -33,5 +33,4 @@ public class AddCommand implements Command
         return "list.do";
     }
 
-    private StorageService storage;
 }

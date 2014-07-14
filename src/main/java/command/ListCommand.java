@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
  * <p/>
  * 2014 июл 09
  */
-public class ListCommand implements Command
+public class ListCommand extends AbstractCommand
 {
     public ListCommand(StorageService storage)
     {
-        this.storage = storage;
+        super(storage);
     }
 
     @Override
@@ -22,6 +22,4 @@ public class ListCommand implements Command
         request.setAttribute("storage", storage);
         return "/view/list.jsp";
     }
-
-    private StorageService storage;
 }
