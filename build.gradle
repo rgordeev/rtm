@@ -6,17 +6,31 @@ repositories {
 }
 
 dependencies {
+
+    // Apache commons
     compile 'org.apache.commons:commons-lang3:3.3.2'
     compile 'org.apache.commons:commons-collections4:4.0'
+
+    // Google Gson library
     compile 'com.google.code.gson:gson:2.2.4'
+
+    // Google Guice
     compile 'com.google.inject:guice:3.0'
     compile 'com.google.inject.extensions:guice-servlet:3.0'
+
+    // Jersey RESTfull service library
+    compile 'com.sun.jersey:jersey-core:1.18.1'
+    compile 'com.sun.jersey:jersey-server:1.18.1'
+    compile 'com.sun.jersey:jersey-servlet:1.18.1'
+    compile 'com.sun.jersey:jersey-json:1.18.1'
+    compile 'com.sun.jersey.contribs:jersey-guice:1.18.1'
     
+    // Servlet API libs
     providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
     providedCompile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
 }
 
 task copyWar(type: Copy, dependsOn: war) {
     from 'build/libs'
-    into '/Users/rgordeev/servers/apache-tomcat-7.0.54/webapps'
+    into '/Users/rgordeev/servers/apache-tomcat-7.0.54/webapps' // <-- user dependent path
 }
