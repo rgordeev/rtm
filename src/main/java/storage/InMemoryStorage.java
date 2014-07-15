@@ -1,5 +1,6 @@
 package storage;
 
+import com.google.inject.Singleton;
 import model.Record;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.Predicate;
@@ -12,15 +13,9 @@ import java.util.Collection;
  * <p/>
  * 2014 июл 09
  */
+@Singleton
 public class InMemoryStorage implements StorageService
 {
-    private static final StorageService instance = new InMemoryStorage();
-
-    public static StorageService getInstance()
-    {
-        return instance;
-    }
-
     public InMemoryStorage() {
         this.storage = new ArrayList<Record>();
     }

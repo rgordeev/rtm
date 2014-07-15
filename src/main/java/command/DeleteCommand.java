@@ -25,6 +25,6 @@ public class DeleteCommand extends AbstractCommand
 
         storage.delete(delete);
 
-        return "list.do";
+        return "/list.do";
     }
 }

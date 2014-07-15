@@ -1,9 +1,12 @@
 package controller;
 
 import com.google.gson.Gson;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import model.Record;
 import org.apache.commons.lang3.StringUtils;
 import storage.InMemoryStorage;
+import storage.StorageService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,9 +24,13 @@ import java.io.PrintWriter;
  * 2014 июл 09
  */
 
-@WebServlet("/rest/*")
+//@WebServlet("/rest/*")
+@Singleton
 public class RestController extends HttpServlet
 {
+    @Inject
+    StorageService storage;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -38,13 +45,14 @@ public class RestController extends HttpServlet
 
         if (StringUtils.isEmpty(id))
         {
-            out.print(new Gson().toJson(InMemoryStorage.getInstance().list()));
+            out.println(new Gson().toJson(storage.list()));
         }
         else
         {
             Long ID = Long.parseLong(id);
-            out.print(new Gson().toJson(InMemoryStorage.getInstance().get(ID)));
+            out.println(new Gson().toJson(storage.get(ID)));
         }
+        out.close();
     }
 
     @Override
@@ -56,13 +64,14 @@ public class RestController extends HttpServlet
 
         Record record = new Gson().fromJson(json, Record.class);
 
-        InMemoryStorage.getInstance().add(record);
+        storage.add(record);
 
         resp.setContentType("application/json");
         resp.setCharacterEncoding("utf-8");
 
         PrintWriter out = resp.getWriter();
-        out.print(new Gson().toJson(record));
+        out.println(new Gson().toJson(record));
+        out.close();
 
     }
 }

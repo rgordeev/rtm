@@ -30,7 +30,7 @@ public class AddCommand extends AbstractCommand
         Record record = new Record(Long.parseLong(id), note);
         storage.add(record);
 
-        return "list.do";
+        return "/list.do";
     }
 
 }

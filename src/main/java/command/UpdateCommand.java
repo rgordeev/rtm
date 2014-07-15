@@ -46,7 +46,7 @@ public class UpdateCommand extends AbstractCommand
         // передаем диспетчеру запрос на отображение списка записей
         // с пердварительной инициализацией бина storage на странице list.jsp
         // посредством выполнения действия ListCommand
-        return "list.do";
+        return "/list.do";
 
     }
 }

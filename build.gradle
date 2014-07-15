@@ -9,6 +9,8 @@ dependencies {
     compile 'org.apache.commons:commons-lang3:3.3.2'
     compile 'org.apache.commons:commons-collections4:4.0'
     compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.google.inject:guice:3.0'
+    compile 'com.google.inject.extensions:guice-servlet:3.0'
     
     providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
     providedCompile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
