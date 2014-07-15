@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Record detail</h1>
+
+    <form novalidate="novalidate" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="inputID">ID:</label>
+
+            <div class="controls">
+                <input type="text" readonly="true" id="inputID" ng-model="record.id"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputNote">Note:</label>
+
+            <div class="controls">
+                <input type="text" id="inputNote" ng-model="record.note"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <a ng-click="cancel()" class="btn btn-small">cancel</a>
+                <a ng-click="updateRecord()" class="btn btn-small btn-primary">update record</a>
+            </div>
+        </div>
+    </form>
+</div>

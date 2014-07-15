@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Create a new user</h1>
+
+    <form novalidate="novalidate" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="inputID">ID:</label>
+
+            <div class="controls">
+                <input type="text" id="inputID" ng-model="record.id" placeholder="ID"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputNote">Phone:</label>
+
+            <div class="controls">
+                <input type="text" id="inputNote" ng-model="record.note" placeholder="Note"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <a ng-click="createNewRecord()" class="btn btn-small btn-primary">create new record</a>
+            </div>
+        </div>
+    </form>
+</div>

@@ -13,7 +13,7 @@ import java.util.Collection;
  * Date: 15.07.14
  * Time: 15:41
  */
-@Path("/")
+@Path("/record")
 @Produces(MediaType.APPLICATION_JSON)
 public class RESTService
 {
