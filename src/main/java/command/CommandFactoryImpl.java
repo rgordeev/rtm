@@ -18,8 +18,6 @@ public class CommandFactoryImpl implements CommandFactory
     @Inject
     public CommandFactoryImpl(StorageService storage)
     {
-        //storage = InMemoryStorage.getInstance();
-
         this.storage = storage;
 
         commands = new HashMap<String, Command>();

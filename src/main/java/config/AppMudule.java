@@ -17,6 +17,9 @@ public class AppMudule extends AbstractModule
     @Override
     protected void configure()
     {
+        // Описываем сопоставление интерфейсов конкретным классам.
+        // При этом указываем Guice, чтобы он создавал единственные экземпляры этих объектов в контексте
+        // запущенного приложения.
         bind(StorageService.class).to(InMemoryStorage.class).in(Singleton.class);
         bind(CommandFactory.class).to(CommandFactoryImpl.class).in(Singleton.class);
     }

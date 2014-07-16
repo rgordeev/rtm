@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('rtm', ['rtm.filters', 'rtm.services', 'rtm.directives', 'rtm.controllers']).
+angular.module('rtm', ['rtm.services', 'rtm.controllers']).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/record-list', {templateUrl: 'partials/record-list.html', controller: 'RecordListCtrl'});
         $routeProvider.when('/record-detail/:id', {templateUrl: 'partials/record-detail.html', controller: 'RecordDetailCtrl'});
