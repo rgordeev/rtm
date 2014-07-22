@@ -26,7 +26,7 @@ public class InMemoryStorage implements StorageService
         Record result = CollectionUtils.find(storage, new Predicate<Record>() {
             @Override
             public boolean evaluate(Record object) {
-                return id == object.getId();
+                return id.equals(object.getId());
             }
         });
 
@@ -51,7 +51,7 @@ public class InMemoryStorage implements StorageService
         Record byID = CollectionUtils.find(storage, new Predicate<Record>() {
             @Override
             public boolean evaluate(Record object) {
-                return record.getId() == object.getId();
+                return record.getId().equals(object.getId());
             }
         });
         byID.setNote(record.getNote());
@@ -65,7 +65,7 @@ public class InMemoryStorage implements StorageService
         Collection<Record> delete = CollectionUtils.select(storage, new Predicate<Record>() {
             @Override
             public boolean evaluate(Record object) {
-                return record.getId() == object.getId();
+                return record.getId().equals(object.getId());
             }
         });
 
