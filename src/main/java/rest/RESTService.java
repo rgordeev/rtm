@@ -49,8 +49,8 @@ public class RESTService
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Record update(Record user) {
-        return storage.update(user);
+    public Record update(Record record) {
+        return storage.update(record);
     }
 
     @DELETE

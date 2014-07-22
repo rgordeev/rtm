@@ -17,6 +17,7 @@ dependencies {
     // Google Guice
     compile 'com.google.inject:guice:3.0'
     compile 'com.google.inject.extensions:guice-servlet:3.0'
+    compile 'com.google.inject.extensions:guice-persist:3.0'
 
     // Jersey RESTfull service library
     compile 'com.sun.jersey:jersey-core:1.18.1'
@@ -24,6 +25,12 @@ dependencies {
     compile 'com.sun.jersey:jersey-servlet:1.18.1'
     compile 'com.sun.jersey:jersey-json:1.18.1'
     compile 'com.sun.jersey.contribs:jersey-guice:1.18.1'
+
+    // Hibernate and database
+    compile 'org.hibernate:hibernate-entitymanager:4.3.5.Final'
+    compile 'com.h2database:h2:1.4.178'
+    //compile 'org.postgresql:postgresql:9.2-1004-jdbc4'
+
     
     // Servlet API libs
     providedCompile 'javax.servlet:javax.servlet-api:3.0.1'

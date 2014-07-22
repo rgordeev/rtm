@@ -4,7 +4,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 import command.CommandFactory;
 import command.CommandFactoryImpl;
-import storage.InMemoryStorage;
+import storage.DBStorage;
 import storage.StorageService;
 
 /**
@@ -20,7 +20,8 @@ public class AppMudule extends AbstractModule
         // Описываем сопоставление интерфейсов конкретным классам.
         // При этом указываем Guice, чтобы он создавал единственные экземпляры этих объектов в контексте
         // запущенного приложения.
-        bind(StorageService.class).to(InMemoryStorage.class).in(Singleton.class);
+        //bind(StorageService.class).to(InMemoryStorage.class).in(Singleton.class);
+        bind(StorageService.class).to(DBStorage.class).in(Singleton.class);
         bind(CommandFactory.class).to(CommandFactoryImpl.class).in(Singleton.class);
     }
 }
