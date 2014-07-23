@@ -7,13 +7,13 @@
     <script src="js/amodule.js"></script>
     <title>AngularJS Page</title>
 </head>
-<body ng-controller="MyController as mCtrl">
-<h1>{{"Hello, " + "Angular!"}}</h1>
-
-<div>
-    {{mCtrl.product.name}}
-    <em class="pull-right">{{mCtrl.product.price}}</em>
+<body class="container" ng-controller="MyController as mCtrl">
+<div class="product row" ng-hide="mCtrl.product.soldOut">
+    <h3>
+        {{mCtrl.product.name}}
+        <em class="pull-right">${{mCtrl.product.price}}</em>
+    </h3>
+    <button ng-show="store.product.canPurchase">Add to Cart</button>
 </div>
-
 </body>
 </html>
