@@ -2,15 +2,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <script src="js/angular.min.js"></script>
+    <script src="js/amodule.js"></script>
     <title>AngularJS Page</title>
 </head>
-<body>
+<body ng-controller="MyController as mCtrl">
 <h1>{{"Hello, " + "Angular!"}}</h1>
 
+<div>
+    {{mCtrl.product.name}}
+    <em class="pull-right">{{mCtrl.product.price}}</em>
+</div>
 
-<script src="js/angular/angular.js"></script>
-<script src="js/angular/angular-resource.js"></script>
-<script src="js/amodule.js"></script>
 </body>
 </html>
