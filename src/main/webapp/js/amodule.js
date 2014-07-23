@@ -4,7 +4,7 @@
     var gem = {
         name: 'The Good',
         price: 110.50,
-        canPurchase: false,
+        canPurchase: true,
         soldOut: false
     };
 
