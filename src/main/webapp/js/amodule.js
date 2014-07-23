@@ -1,14 +1,13 @@
 (function() {
     var app = angular.module('gemStore', []);
 
-    var gem = {
-        name: 'The Good',
-        price: 110.50,
-        canPurchase: true,
-        soldOut: false
-    };
+    var gems = [
+        { name: 'Azurite', price: 2.95 },
+        { name: 'Bloodstone', price: 5.95 },
+        { name: 'Zircon', price: 3.95 },
+    ];
 
     app.controller('MyController', function () {
-        this.product = gem;
+        this.products = gems;
     });
 })();

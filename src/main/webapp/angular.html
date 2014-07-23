@@ -8,12 +8,11 @@
     <title>AngularJS Page</title>
 </head>
 <body class="container" ng-controller="MyController as mCtrl">
-<div class="product row" ng-hide="mCtrl.product.soldOut">
+<div class="product row" ng-repeat="product in mCtrl.products">
     <h3>
-        {{mCtrl.product.name}}
-        <em class="pull-right">${{mCtrl.product.price}}</em>
+        {{product.name}}
+        <em class="pull-right">${{product.price}}</em>
     </h3>
-    <button ng-show="mCtrl.product.canPurchase">Add to Cart</button>
 </div>
 </body>
 </html>
