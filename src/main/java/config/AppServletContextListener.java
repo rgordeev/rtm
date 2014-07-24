@@ -2,12 +2,21 @@ package config;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.Singleton;
+import com.google.inject.persist.PersistFilter;
+import com.google.inject.persist.jpa.JpaPersistModule;
 import com.google.inject.servlet.GuiceServletContextListener;
+import com.google.inject.servlet.RequestScoped;
 import com.google.inject.servlet.ServletModule;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
+import command.CommandFactory;
+import command.CommandFactoryImpl;
 import controller.RestController;
 import controller.SimpleController;
+import storage.DBStorage;
+import storage.StorageService;
 
+import javax.servlet.ServletContextEvent;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -68,6 +77,13 @@ public class AppServletContextListener extends GuiceServletContextListener
                     @Override
                     protected void configureServlets()
                     {
+                        install(new JpaPersistModule("db-manager"));
+                        /*
+                        bind(StorageService.class).to(DBStorage.class).in(Singleton.class);
+                        bind(CommandFactory.class).to(CommandFactoryImpl.class).in(Singleton.class);
+                        */
+                        filter("/*").through(PersistFilter.class);
+
                         serve("*.do")   .with(SimpleController.class        );
                         serve("/rst/*") .with(RestController.class          );
                         serve("/rest/*").with(GuiceContainer.class, params  );
