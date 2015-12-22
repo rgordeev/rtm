@@ -32,5 +32,5 @@ dependencies {
 
 task copyWar(type: Copy, dependsOn: war) {
     from 'build/libs'
-    into '/Users/rgordeev/servers/apache-tomcat-7.0.54/webapps' // <-- user dependent path
+    into "${System.env.TOMCAT_HOME}/webapps" // <-- user dependent path
 }
